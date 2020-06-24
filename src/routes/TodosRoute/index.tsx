@@ -54,13 +54,14 @@ class TodosRoute extends Component<TodosRouteProps> {
 
   renderSuccessUI = observer(() => {
     const { todos, todosLeftCount } = this.getTodoStore()
+
     return (
       <TodosWrapper>
         <RefDemoButton onClick={this.getCurrentTodo}>
           Add current todo
         </RefDemoButton>
         <UserInput
-          ref={this.todoInputRef}
+          componentRef={this.todoInputRef}
           onAddInput={this.onAddTodo}
           buttonText='Add Todo'
         />

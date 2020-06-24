@@ -8,6 +8,7 @@ import { UserInputButton, UserTextInput } from './styledComponents'
 type UserInputProps = {
   onAddInput: (userInput: string) => any
   buttonText: string
+  componentRef: any
 }
 
 @observer
@@ -16,6 +17,10 @@ class UserInput extends Component<UserInputProps> {
 
   static defaultProps = {
     buttonText: 'Add Input'
+  }
+
+  componentDidMount() {
+    this.props.componentRef.current.focus()
   }
 
   onChange = event => {
@@ -49,11 +54,12 @@ class UserInput extends Component<UserInputProps> {
   }
 
   render() {
-    const { buttonText } = this.props
+    const { buttonText, componentRef } = this.props
     return (
       <div>
         <UserTextInput
           type='text'
+          ref={componentRef}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           value={this.userInput}
