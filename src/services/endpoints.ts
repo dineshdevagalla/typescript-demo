@@ -4,7 +4,7 @@ const endpoints = {
     updateCompletion: 'update/todo/completion_status'
   },
   posts: {
-    PostsList: "posts"
+    PostsList: 'posts'
   }
 }
 

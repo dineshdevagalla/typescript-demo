@@ -6,13 +6,11 @@ import { observer } from 'mobx-react'
 
 import withComponentName from '../../hocs/withComponentName'
 
-import NoDataView from '../common/NoDataView'
-
 import TodoModel from '../../stores/models/TodoModel'
 
-import Todo from '../Todo'
-
 import { TodosListWrapper } from './styledComponents'
+import Todo from '../Todo'
+import NoDataView from '../common/NoDataView'
 
 interface TodoListProps extends RouteComponentProps {
   todos: Array<TodoModel>

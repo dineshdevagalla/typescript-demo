@@ -2,17 +2,16 @@ import getPostsResponse from '../../fixtures/getPostsResponse.json'
 
 import { resolveWithTimeout } from '../../utils/TestUtils'
 
-import PostService from "./index"
+import PostService from './index'
 
 class PostsFixtureService implements PostService {
-    getPostsAPI() {
-        return resolveWithTimeout(getPostsResponse)
-    }
+  getPostsAPI() {
+    return resolveWithTimeout(getPostsResponse)
+  }
 
-    updateTodoCompletionAPI() {
-        return resolveWithTimeout({})
-    }
+  updateTodoCompletionAPI() {
+    return resolveWithTimeout({})
+  }
 }
 
 export default PostsFixtureService
-

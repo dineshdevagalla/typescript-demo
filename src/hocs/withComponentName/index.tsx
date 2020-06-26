@@ -12,6 +12,7 @@ function withComponentNameClassComponent<T>(
   return class extends React.Component<T> {
     render() {
       const props = this.props as T
+
       return (
         <HOCWrapper>
           <ComponentName>{getDisplayName(WrappedComponent)}</ComponentName>
@@ -22,15 +23,33 @@ function withComponentNameClassComponent<T>(
   }
 }
 
+// function someComponent(wrappedCompnent){
+
+//    class enchancedComponent extends React.Component{
+//this.props
+//       render(){
+
+//         return ("hiiii")
+//       }
+
+//    }
+
+//    return enchancedComponent
+
+// }
+
 function withComponentNameFunctionalComponent<T>(
   WrappedComponent: React.ComponentType<T>
 ) {
-  const functionalComponent = (props: T) => (
-    <HOCWrapper>
-      <ComponentName>{getDisplayName(WrappedComponent)}</ComponentName>
-      <WrappedComponent {...props} />
-    </HOCWrapper>
-  )
+  const functionalComponent = (props: T) => {
+    console.log(props, 'hiii diensh')
+    return (
+      <HOCWrapper>
+        <ComponentName>{getDisplayName(WrappedComponent)}</ComponentName>
+        <WrappedComponent {...props} />
+      </HOCWrapper>
+    )
+  }
   return functionalComponent
 }
 
