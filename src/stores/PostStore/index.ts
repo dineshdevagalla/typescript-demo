@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx'
 import { bindPromiseWithOnSuccess } from '@ib/mobx-promise'
-import { API_INITIAL, APIStatus } from '@ib/api-constants'
+import { API_INITIAL, APIStatus, API_SWIPE_REFRESH } from '@ib/api-constants'
 
 import PostService from '../../services/PostService'
 
