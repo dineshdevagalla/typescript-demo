@@ -9,8 +9,9 @@ import TodoModel from '../../stores/models/TodoModel'
 import { getFormattedErrorDescription } from '../../utils/APIUtils'
 
 import { TodoWrapper, TodoItem } from './styledComponents'
+import { withTranslation, WithTranslation } from 'react-i18next'
 
-type TodoProps = {
+interface TodoProps extends WithTranslation {
   todo: TodoModel
 }
 
@@ -57,4 +58,4 @@ class Todo extends Component<TodoProps> {
   }
 }
 
-export default Todo
+export default withTranslation()(Todo)

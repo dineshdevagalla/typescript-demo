@@ -15,10 +15,10 @@ import {
   POSTS_ROUTE_PATH
 } from './constants/NavigationConstants'
 
-const TodosRoute = lazy(() => import('./routes/TodosRoute'))
+const TodosRoute = lazy(() => import('./stores/TodosRoute'))
 import PostsRoute from './routes/PostsRoute'
 import i18n from './i18n'
-
+//import { Provider } from "mobx-react";
 const App = () => {
   return (
     <Provider {...stores}>

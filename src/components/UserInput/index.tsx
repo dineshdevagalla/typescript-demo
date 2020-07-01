@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { observable, action } from 'mobx'
+import { withTranslation, WithTranslation } from 'react-i18next'
 
 import { isEnterKeyEvent } from '../../utils/AppUtils'
 import { UserInputButton, UserTextInput } from './styledComponents'
 
-type UserInputProps = {
+interface UserInputProps extends WithTranslation {
   onAddInput: (userInput: string) => any
   buttonText: string
   componentRef: any
@@ -72,4 +73,6 @@ class UserInput extends Component<UserInputProps> {
   }
 }
 
-export default UserInput
+//export { UserInput }
+
+export default withTranslation('translation', { withRef: true })(UserInput)

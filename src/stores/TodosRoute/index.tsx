@@ -9,12 +9,13 @@ import TodoList from '../../components/TodoList'
 import UserInput from '../../components/UserInput'
 import TodoFooter from '../../components/TodoFooter'
 
-import TodoStore from '../../stores/TodoStore'
+import TodoStore from '../TodoStore'
 
 import { TodosWrapper, RefDemoButton } from './styledComponents'
 import { API_SUCCESS } from '@ib/api-constants'
+import { withTranslation, WithTranslation } from 'react-i18next'
 
-interface TodosRouteProps extends RouteComponentProps {}
+interface TodosRouteProps extends RouteComponentProps, WithTranslation {}
 
 interface InjectedProps extends TodosRouteProps {
   todoStore: TodoStore
@@ -23,7 +24,7 @@ interface InjectedProps extends TodosRouteProps {
 @inject('todoStore')
 @observer
 class TodosRoute extends Component<TodosRouteProps> {
-  todoInputRef: React.RefObject<UserInput>
+  todoInputRef: any
 
   constructor(props) {
     super(props)
@@ -63,7 +64,7 @@ class TodosRoute extends Component<TodosRouteProps> {
 
   renderSuccessUI = observer(() => {
     const { todos, todosLeftCount } = this.getTodoStore()
-
+    const { t } = this.props
     return (
       <TodosWrapper>
         <RefDemoButton onClick={this.getCurrentTodo}>
@@ -72,7 +73,7 @@ class TodosRoute extends Component<TodosRouteProps> {
         <UserInput
           componentRef={this.todoInputRef}
           onAddInput={this.onAddTodo}
-          buttonText='Add Todo'
+          buttonText={t('todos:addTodo')}
         />
         <TodoList todos={todos} />
         <TodoFooter todosLeftCount={todosLeftCount} />
@@ -82,6 +83,7 @@ class TodosRoute extends Component<TodosRouteProps> {
 
   render() {
     const { getTodoListAPIStatus, getTodoListAPIError } = this.getTodoStore()
+
     return (
       <LoadingWrapperWithFailure
         apiStatus={getTodoListAPIStatus}
@@ -92,5 +94,7 @@ class TodosRoute extends Component<TodosRouteProps> {
     )
   }
 }
-
-export default withRouter(TodosRoute)
+export default withRouter(
+  withTranslation('translation', { withRef: true })(TodosRoute)
+)
+//export default withRouter(TodosRoute)

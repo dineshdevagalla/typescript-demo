@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import tw from 'tailwind.macro'
+import tw from '../../stores/TodosRoute/node_modules/tailwind.macro'
 
 export const UserTextInput = styled.input`
   ${tw`border-black border-solid border-2 h-10 mb-4 p-2`}

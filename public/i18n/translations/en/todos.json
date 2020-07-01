@@ -9,5 +9,6 @@
   "todosLeft_plural": "Todos Left",
   "todosLeftParameter": "Still {{count}} Todo Left",
   "todosLeftParameter_plural": "Still {{count}} Todos Left",
-  "todoWithParameter": "Todo - {{todoText}}"
+  "todoWithParameter": "Todo - {{todoText}}",
+  "addInput": "Add Input"
 }

@@ -9,7 +9,6 @@ type PostProps = {
 class Post extends React.Component<PostProps> {
   render() {
     const { eachPost } = this.props
-    console.log(eachPost.title, 'hiiiii')
     return (
       <div className='border border-solid border-black'>
         <h1>{eachPost.title}</h1>
